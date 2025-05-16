@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="CP3-Governanca Completo" id="id-254168471de5463ca3a299a8c9c8da36" version="5.0.0">
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:archimate="http://www.archimatetool.com/archimate"
+                 name="CP3-Governanca Completo Corrigido"
+                 id="id-254168471de5463ca3a299a8c9c8da36"
+                 version="5.0.0">
 
-  <!-- Seu conteúdo original abaixo, com elementos do folder Business e Motivation -->
+  <!-- Strategy folder vazio por enquanto -->
   <folder name="Strategy" id="id-07e004a58c884c1595dd4fec14acdf93" type="strategy"/>
+
   <folder name="Business" id="id-e1c9031a704941dd8f30be1d66de743e" type="business">
+    <!-- Elementos originais -->
     <element xsi:type="archimate:BusinessActor" name="Executivos da Eurofarma" id="id-c7c0224d5da64c768497f8f90523edc2"/>
     <element xsi:type="archimate:BusinessActor" name="Diretoria de empreendedorismo e digital" id="id-d4609218abb74864a3bf5b12cdb3eef8"/>
     <element xsi:type="archimate:BusinessEvent" name="Solicitação de visualização de projetos" id="id-52400a572101422588a691d973e90d63"/>
@@ -31,7 +37,21 @@
     <element xsi:type="archimate:BusinessEvent" name="Ideia aprovada" id="id-be-ideia-aprovada"/>
     <element xsi:type="archimate:BusinessEvent" name="Status atualizado" id="id-be-status-atualizado"/>
   </folder>
-  
+
+  <folder name="Motivation" id="id-f042829aecf745c5a98bd457cb8bba5b" type="motivation">
+    <!-- Adicionando elementos de Visão da Arquitetura -->
+    <element xsi:type="archimate:Driver" name="Engajamento dos colaboradores" id="id-driver-engajamento"/>
+    <element xsi:type="archimate:Driver" name="Visibilidade para a liderança" id="id-driver-visibilidade"/>
+    <element xsi:type="archimate:Assessment" name="Risco: Baixo engajamento" id="id-assessment-risco-engajamento"/>
+    <element xsi:type="archimate:Assessment" name="Oportunidade: Cultura de inovação" id="id-assessment-oportunidade-cultura"/>
+    <element xsi:type="archimate:Goal" name="Melhorar visibilidade dos projetos" id="id-goal-melhorar-visibilidade"/>
+    <element xsi:type="archimate:Goal" name="Aumentar engajamento dos colaboradores" id="id-goal-engajamento"/>
+    <element xsi:type="archimate:Requirement" name="Plataforma responsiva mobile-first" id="id-req-mobile"/>
+    <element xsi:type="archimate:Requirement" name="Integração com sistemas Kaizen e Clic" id="id-req-integracao"/>
+    <element xsi:type="archimate:Requirement" name="Autenticação segura com OAuth2 e MFA" id="id-req-auth"/>
+    <element xsi:type="archimate:Requirement" name="Notificações e gamificação" id="id-req-gamificacao"/>
+  </folder>
+
   <folder name="Application" id="id-8dbb6573a2df4741b8711005bb7b3cb7" type="application">
     <!-- Arquitetura de Sistema -->
     <element xsi:type="archimate:ApplicationComponent" name="Frontend Flutter" id="id-app-frontend"/>
@@ -43,7 +63,7 @@
     <element xsi:type="archimate:DataObject" name="Banco de Dados Relacional (PostgreSQL)" id="id-data-bd-relacional"/>
     <element xsi:type="archimate:DataObject" name="Armazenamento de Arquivos (S3 ou Blob)" id="id-data-storage"/>
   </folder>
-  
+
   <folder name="Technology & Physical" id="id-98043044e53c4c319be73d575f15b850" type="technology">
     <!-- Arquitetura de Tecnologia -->
     <element xsi:type="archimate:Node" name="Servidor Cloud (AWS ou Azure)" id="id-node-cloud"/>
@@ -55,7 +75,7 @@
     <element xsi:type="archimate:TechnologyService" name="Serviço de Autenticação" id="id-ts-auth"/>
     <element xsi:type="archimate:TechnologyService" name="Serviço de Notificação" id="id-ts-notificacao"/>
   </folder>
-  
+
   <folder name="Implementation & Migration" id="id-a42870cba7be48f08f06e89d7c325e99" type="implementation_migration">
     <!-- Protótipos e Roadmap -->
     <element xsi:type="archimate:WorkPackage" name="Sprint 1: MVP Submissão e Visualização" id="id-wp-sprint1"/>
@@ -66,7 +86,7 @@
     <element xsi:type="archimate:Plateau" name="MVP" id="id-plateau-mvp"/>
     <element xsi:type="archimate:Plateau" name="Versão Final" id="id-plateau-final"/>
   </folder>
-  
+
   <folder name="Relations" id="id-5f23c5e9d0394939828e63a94e9bbf36" type="relations">
     <!-- Relações Visão da Arquitetura -->
     <element xsi:type="archimate:AssociationRelationship" id="rel1" source="id-goal-melhorar-visibilidade" target="id-driver-visibilidade"/>
@@ -94,6 +114,7 @@
     <element xsi:type="archimate:AggregationRelationship" id="rel19" source="id-plateau-mvp" target="id-wp-sprint1"/>
     <element xsi:type="archimate:AggregationRelationship" id="rel20" source="id-plateau-final" target="id-wp-sprint3"/>
   </folder>
-  
-  <!-- Seu folder Views, Diagrams, e demais conteúdo permanece igual -->
+
+  <!-- Views e demais elementos visuais ficam no seu arquivo original -->
+
 </archimate:model>
