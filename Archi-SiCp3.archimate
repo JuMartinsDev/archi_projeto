@@ -1,95 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="InovaEuro" id="id-inovaeuro" version="5.0.0">
-  
-  <!-- ===== CAMADA DE ESTRATÉGIA ===== -->
+
+  <!-- ===== 1. VISÃO DA ARQUITETURA (20%) ===== -->
   <folder name="Strategy" id="id-strategy" type="strategy">
     <!-- Stakeholders -->
     <element xsi:type="archimate:Stakeholder" id="id-colaboradores" name="Colaboradores Eurofarma">
-      <property key="Motivação" value="Participar ativamente da inovação"/>
+      <property key="Descrição" value="9 mil colaboradores das áreas administrativa, operacional e de campo"/>
     </element>
     <element xsi:type="archimate:Stakeholder" id="id-executivos" name="Executivos Eurofarma">
-      <property key="Motivação" value="Visibilidade dos projetos de inovação"/>
+      <property key="Descrição" value="Alta liderança que necessita de visibilidade sobre projetos de inovação"/>
     </element>
-    
+    <element xsi:type="archimate:Stakeholder" id="id-diretoria" name="Diretoria de Empreendedorismo e Digital">
+      <property key="Descrição" value="5 gerências com metodologias distintas"/>
+    </element>
+
     <!-- Drivers -->
-    <element xsi:type="archimate:Driver" id="id-baixo-engajamento" name="Baixo engajamento dos colaboradores"/>
-    <element xsi:type="archimate:Driver" id="id-falta-visibilidade" name="Falta de visibilidade para liderança"/>
-    
-    <!-- Objetivos -->
-    <element xsi:type="archimate:Goal" id="id-aumentar-engajamento" name="Aumentar engajamento em 30% em 6 meses"/>
-    <element xsi:type="archimate:Goal" id="id-dashboards-tempo-real" name="Fornecer dashboards em tempo real"/>
-    
+    <element xsi:type="archimate:Driver" id="id-driver1" name="Baixo engajamento dos colaboradores">
+      <property key="Evidência" value="Canais de comunicação ineficientes (PDF)"/>
+    </element>
+    <element xsi:type="archimate:Driver" id="id-driver2" name="Falta de visibilidade para liderança">
+      <property key="Evidência" value="Projetos não padronizados (PDF)"/>
+    </element>
+
+    <!-- Objetivos e Metas -->
+    <element xsi:type="archimate:Goal" id="id-goal1" name="Aumentar engajamento em 30% em 6 meses">
+      <property key="Métrica" value="Número de ideias submetidas"/>
+    </element>
+    <element xsi:type="archimate:Goal" id="id-goal2" name="Padronizar visibilidade de projetos">
+      <property key="Métrica" value="Dashboards atualizados em tempo real"/>
+    </element>
+
     <!-- Requisitos -->
-    <element xsi:type="archimate:Requirement" id="id-plataforma-mobile" name="Plataforma mobile-first com QR Code"/>
-    <element xsi:type="archimate:Requirement" id="id-integracao-kaizen" name="Integração com sistemas Kaizen e Clic"/>
+    <element xsi:type="archimate:Requirement" id="id-req1" name="Plataforma mobile-first com QR Code">
+      <property key="Prioridade" value="Alta"/>
+    </element>
+    <element xsi:type="archimate:Requirement" id="id-req2" name="Integração com Kaizen e Clic">
+      <property key="Prioridade" value="Média"/>
+    </element>
+
+    <!-- Assessments (Novos) -->
+    <element xsi:type="archimate:Assessment" id="id-assess1" name="Risco de baixa adoção">
+      <property key="Mitigação" value="Gamificação e treinamento"/>
+    </element>
   </folder>
-  
-  <!-- ===== CAMADA DE NEGÓCIO ===== -->
+
+  <!-- ===== 2. ARQUITETURA DE NEGÓCIO (20%) ===== -->
   <folder name="Business" id="id-business" type="business">
     <!-- Processos -->
-    <element xsi:type="archimate:BusinessProcess" id="id-envio-ideias" name="Envio de Ideias">
+    <element xsi:type="archimate:BusinessProcess" id="id-process1" name="Submissão de Ideias">
       <property key="Responsável" value="Colaborador"/>
-      <property key="Evento" value="Acesso via QR Code"/>
+      <property key="Evento" value="Acesso via QR Code no celular"/>
+      <property key="Local" value="Fábrica/Escritório/Campo"/>
     </element>
-    <element xsi:type="archimate:BusinessProcess" id="id-avaliacao-projetos" name="Avaliação de Projetos">
+    <element xsi:type="archimate:BusinessProcess" id="id-process2" name="Avaliação de Projetos">
       <property key="Responsável" value="Comitê de Inovação"/>
+      <property key="Evento" value="Notificação de nova ideia"/>
     </element>
-    
+
     <!-- Serviços -->
-    <element xsi:type="archimate:BusinessService" id="id-gestao-inovacao" name="Gestão Centralizada de Inovação"/>
-    
-    <!-- Atores -->
-    <element xsi:type="archimate:BusinessActor" id="id-analista-inovacao" name="Analista de Inovação"/>
-    <element xsi:type="archimate:BusinessRole" id="id-gerente-diretoria" name="Gerente da Diretoria de Empreendedorismo"/>
+    <element xsi:type="archimate:BusinessService" id="id-service1" name="Gestão de Inovação Centralizada">
+      <property key="Descrição" value="Consolida ideias e projetos em uma plataforma"/>
+    </element>
+
+    <!-- Atores e Papéis -->
+    <element xsi:type="archimate:BusinessRole" id="id-role1" name="Administrador da Plataforma">
+      <property key="Responsabilidade" value="Gerenciar permissões e integrações"/>
+    </element>
   </folder>
-  
-  <!-- ===== CAMADA DE APLICAÇÃO ===== -->
+
+  <!-- ===== 3. ARQUITETURA DE SISTEMA (20%) ===== -->
   <folder name="Application" id="id-application" type="application">
     <!-- Frontend -->
-    <element xsi:type="archimate:ApplicationComponent" id="id-frontend-flutter" name="Frontend (Flutter)">
+    <element xsi:type="archimate:ApplicationComponent" id="id-frontend" name="Frontend (Flutter)">
       <property key="Tecnologia" value="Flutter (Mobile/Web)"/>
+      <property key="Função" value="Interface para colaboradores e executivos"/>
     </element>
-    
-    <!-- Backend -->
+
+    <!-- Backend e APIs -->
     <element xsi:type="archimate:ApplicationComponent" id="id-api-ideias" name="API de Ideias">
-      <property key="Função" value="Gerenciar submissões de ideias"/>
+      <property key="Protocolo" value="REST"/>
+      <property key="Função" value="CRUD de ideias e projetos"/>
     </element>
     <element xsi:type="archimate:ApplicationComponent" id="id-api-gamificacao" name="API de Gamificação">
-      <property key="Função" value="Pontuação e reconhecimento"/>
+      <property key="Função" value="Pontuação e rankings"/>
     </element>
-    
+
     <!-- Dados -->
-    <element xsi:type="archimate:DataObject" id="id-db-ideias" name="Banco de Dados de Ideias (PostgreSQL)"/>
+    <element xsi:type="archimate:DataObject" id="id-db-ideias" name="Banco de Dados de Ideias">
+      <property key="Tecnologia" value="PostgreSQL"/>
+    </element>
+    <element xsi:type="archimate:DataObject" id="id-db-log" name="Log de Atividades">
+      <property key="Tecnologia" value="Amazon S3"/>
+    </element>
   </folder>
-  
-  <!-- ===== CAMADA DE TECNOLOGIA ===== -->
+
+  <!-- ===== 4. ARQUITETURA DE TECNOLOGIA (20%) ===== -->
   <folder name="Technology" id="id-technology" type="technology">
     <!-- Infraestrutura -->
-    <element xsi:type="archimate:Node" id="id-aws-ec2" name="AWS EC2">
-      <property key="Tipo" value="Cloud"/>
+    <element xsi:type="archimate:Node" id="id-cloud" name="AWS EC2">
+      <property key="Serviços" value="EC2, RDS, S3"/>
     </element>
-    <element xsi:type="archimate:TechnologyService" id="id-oauth" name="Autenticação OAuth 2.0"/>
+    <element xsi:type="archimate:TechnologyService" id="id-auth" name="Autenticação OAuth 2.0">
+      <property key="Padrão" value="LGPD-compliant"/>
+    </element>
+
+    <!-- Redes -->
+    <element xsi:type="archimate:Network" id="id-network" name="Rede Corporativa Eurofarma">
+      <property key="Segurança" value="SSL/TLS"/>
+    </element>
   </folder>
-  
+
+  <!-- ===== 5. IMPLEMENTAÇÃO & MIGRAÇÃO (20%) ===== -->
+  <folder name="Implementation" id="id-implementation" type="implementation_migration">
+    <!-- Roadmap -->
+    <element xsi:type="archimate:WorkPackage" id="id-sprint1" name="Sprint 1: Módulo de Ideias">
+      <property key="Prazo" value="Mês 1"/>
+      <property key="Entregas" value="Frontend + API de Ideias"/>
+    </element>
+    <element xsi:type="archimate:WorkPackage" id="id-sprint2" name="Sprint 2: Gamificação">
+      <property key="Prazo" value="Mês 2"/>
+    </element>
+
+    <!-- Protótipos (Mockups) -->
+    <element xsi:type="archimate:Artifact" id="id-prototype1" name="Protótipo: Tela de Login via QR Code">
+      <property key="Ferramenta" value="Figma"/>
+    </element>
+  </folder>
+
   <!-- ===== RELACIONAMENTOS ===== -->
   <folder name="Relations" id="id-relations" type="relations">
-    <!-- Exemplo de relacionamentos -->
-    <element xsi:type="archimate:InfluenceRelationship" id="id-rel1" source="id-baixo-engajamento" target="id-aumentar-engajamento"/>
-    <element xsi:type="archimate:AssignmentRelationship" id="id-rel2" source="id-colaboradores" target="id-envio-ideias"/>
-    <element xsi:type="archimate:FlowRelationship" id="id-rel3" source="id-envio-ideias" target="id-api-ideias"/>
+    <!-- Exemplos -->
+    <element xsi:type="archimate:InfluenceRelationship" id="id-rel1" source="id-driver1" target="id-goal1"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-rel2" source="id-frontend" target="id-api-ideias"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="id-rel3" source="id-role1" target="id-process2"/>
   </folder>
-  
-  <!-- ===== DIAGRAMAS ===== -->
+
+  <!-- ===== DIAGRAMAS VISUAIS ===== -->
   <folder name="Views" id="id-views" type="diagrams">
-    <element xsi:type="archimate:ArchimateDiagramModel" name="Visão Geral InovaEuro" id="id-diagrama">
-      <!-- DiagramObjects e conexões aqui (exemplo simplificado) -->
-      <child xsi:type="archimate:DiagramObject" id="id-do-colaboradores" archimateElement="id-colaboradores">
+    <element xsi:type="archimate:ArchimateDiagramModel" name="Visão Geral da Arquitetura" id="id-diagram1">
+      <!-- Objetos do diagrama aqui -->
+      <child xsi:type="archimate:DiagramObject" id="id-do-colab" archimateElement="id-colaboradores">
         <bounds x="100" y="100" width="120" height="50"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-do-frontend" archimateElement="id-frontend-flutter">
+      <child xsi:type="archimate:DiagramObject" id="id-do-front" archimateElement="id-frontend">
         <bounds x="300" y="100" width="120" height="50"/>
       </child>
-      <element xsi:type="archimate:Connection" id="id-conn1" source="id-do-colaboradores" target="id-do-frontend" archimateRelationship="id-rel2"/>
+      <element xsi:type="archimate:Connection" id="id-conn1" source="id-do-colab" target="id-do-front" archimateRelationship="id-rel2"/>
     </element>
   </folder>
 </archimate:model>
