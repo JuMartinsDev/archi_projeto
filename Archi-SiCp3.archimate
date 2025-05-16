@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="InovaEuro" id="id-inovaeuro" version="5.0.0">
+  
+  <!-- ===== CAMADA DE ESTRATÉGIA ===== -->
+  <folder name="Strategy" id="id-strategy" type="strategy">
+    <!-- Stakeholders -->
+    <element xsi:type="archimate:Stakeholder" id="id-colaboradores" name="Colaboradores Eurofarma">
+      <property key="Motivação" value="Participar ativamente da inovação"/>
+    </element>
+    <element xsi:type="archimate:Stakeholder" id="id-executivos" name="Executivos Eurofarma">
+      <property key="Motivação" value="Visibilidade dos projetos de inovação"/>
+    </element>
+    
+    <!-- Drivers -->
+    <element xsi:type="archimate:Driver" id="id-baixo-engajamento" name="Baixo engajamento dos colaboradores"/>
+    <element xsi:type="archimate:Driver" id="id-falta-visibilidade" name="Falta de visibilidade para liderança"/>
+    
+    <!-- Objetivos -->
+    <element xsi:type="archimate:Goal" id="id-aumentar-engajamento" name="Aumentar engajamento em 30% em 6 meses"/>
+    <element xsi:type="archimate:Goal" id="id-dashboards-tempo-real" name="Fornecer dashboards em tempo real"/>
+    
+    <!-- Requisitos -->
+    <element xsi:type="archimate:Requirement" id="id-plataforma-mobile" name="Plataforma mobile-first com QR Code"/>
+    <element xsi:type="archimate:Requirement" id="id-integracao-kaizen" name="Integração com sistemas Kaizen e Clic"/>
+  </folder>
+  
+  <!-- ===== CAMADA DE NEGÓCIO ===== -->
+  <folder name="Business" id="id-business" type="business">
+    <!-- Processos -->
+    <element xsi:type="archimate:BusinessProcess" id="id-envio-ideias" name="Envio de Ideias">
+      <property key="Responsável" value="Colaborador"/>
+      <property key="Evento" value="Acesso via QR Code"/>
+    </element>
+    <element xsi:type="archimate:BusinessProcess" id="id-avaliacao-projetos" name="Avaliação de Projetos">
+      <property key="Responsável" value="Comitê de Inovação"/>
+    </element>
+    
+    <!-- Serviços -->
+    <element xsi:type="archimate:BusinessService" id="id-gestao-inovacao" name="Gestão Centralizada de Inovação"/>
+    
+    <!-- Atores -->
+    <element xsi:type="archimate:BusinessActor" id="id-analista-inovacao" name="Analista de Inovação"/>
+    <element xsi:type="archimate:BusinessRole" id="id-gerente-diretoria" name="Gerente da Diretoria de Empreendedorismo"/>
+  </folder>
+  
+  <!-- ===== CAMADA DE APLICAÇÃO ===== -->
+  <folder name="Application" id="id-application" type="application">
+    <!-- Frontend -->
+    <element xsi:type="archimate:ApplicationComponent" id="id-frontend-flutter" name="Frontend (Flutter)">
+      <property key="Tecnologia" value="Flutter (Mobile/Web)"/>
+    </element>
+    
+    <!-- Backend -->
+    <element xsi:type="archimate:ApplicationComponent" id="id-api-ideias" name="API de Ideias">
+      <property key="Função" value="Gerenciar submissões de ideias"/>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" id="id-api-gamificacao" name="API de Gamificação">
+      <property key="Função" value="Pontuação e reconhecimento"/>
+    </element>
+    
+    <!-- Dados -->
+    <element xsi:type="archimate:DataObject" id="id-db-ideias" name="Banco de Dados de Ideias (PostgreSQL)"/>
+  </folder>
+  
+  <!-- ===== CAMADA DE TECNOLOGIA ===== -->
+  <folder name="Technology" id="id-technology" type="technology">
+    <!-- Infraestrutura -->
+    <element xsi:type="archimate:Node" id="id-aws-ec2" name="AWS EC2">
+      <property key="Tipo" value="Cloud"/>
+    </element>
+    <element xsi:type="archimate:TechnologyService" id="id-oauth" name="Autenticação OAuth 2.0"/>
+  </folder>
+  
+  <!-- ===== RELACIONAMENTOS ===== -->
+  <folder name="Relations" id="id-relations" type="relations">
+    <!-- Exemplo de relacionamentos -->
+    <element xsi:type="archimate:InfluenceRelationship" id="id-rel1" source="id-baixo-engajamento" target="id-aumentar-engajamento"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="id-rel2" source="id-colaboradores" target="id-envio-ideias"/>
+    <element xsi:type="archimate:FlowRelationship" id="id-rel3" source="id-envio-ideias" target="id-api-ideias"/>
+  </folder>
+  
+  <!-- ===== DIAGRAMAS ===== -->
+  <folder name="Views" id="id-views" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" name="Visão Geral InovaEuro" id="id-diagrama">
+      <!-- DiagramObjects e conexões aqui (exemplo simplificado) -->
+      <child xsi:type="archimate:DiagramObject" id="id-do-colaboradores" archimateElement="id-colaboradores">
+        <bounds x="100" y="100" width="120" height="50"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-do-frontend" archimateElement="id-frontend-flutter">
+        <bounds x="300" y="100" width="120" height="50"/>
+      </child>
+      <element xsi:type="archimate:Connection" id="id-conn1" source="id-do-colaboradores" target="id-do-frontend" archimateRelationship="id-rel2"/>
+    </element>
+  </folder>
+</archimate:model>
